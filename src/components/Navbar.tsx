@@ -33,7 +33,7 @@ export default function Navbar({ alwaysSolid = false }: NavbarProps) {
         <ul className="nav-links">
           <li><a href="/#about">About</a></li>
           <li><a href="/resume">Resume</a></li>
-          <li><a href="/#blog">Blog</a></li>
+          <li><a href="/blog">Blog</a></li>
           <li><a href="/bucket-list">Bucket List</a></li>
         </ul>
 
@@ -53,7 +53,7 @@ export default function Navbar({ alwaysSolid = false }: NavbarProps) {
         <ul>
           <li><a href="/#about" onClick={closeMenu}>About</a></li>
           <li><a href="/resume" onClick={closeMenu}>Resume</a></li>
-          <li><a href="/#blog" onClick={closeMenu}>Blog</a></li>
+          <li><a href="/blog" onClick={closeMenu}>Blog</a></li>
           <li><a href="/bucket-list" onClick={closeMenu}>Bucket List</a></li>
         </ul>
       </div>
