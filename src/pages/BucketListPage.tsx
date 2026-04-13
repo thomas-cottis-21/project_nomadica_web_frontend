@@ -22,11 +22,13 @@ const STATUS_LABELS: Record<BucketListStatus, string> = {
 export default function BucketListPage() {
   const [data, setData] = useState<BucketListData | null>(null)
   const [filter, setFilter] = useState<Filter>('all')
+  const [error, setError] = useState(false)
 
   useEffect(() => {
-    fetchBucketList().then(setData)
+    fetchBucketList().then(setData).catch(() => setError(true))
   }, [])
 
+  if (error) return <div className="bl-loading">Failed to load bucket list.</div>
   if (!data) return <div className="bl-loading">Loading...</div>
 
   const { items } = data

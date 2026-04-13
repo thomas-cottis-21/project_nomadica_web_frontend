@@ -131,6 +131,12 @@
   50%       { opacity: 1;   transform: scaleY(1.15); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .scroll-line {
+    animation: none;
+  }
+}
+
 /* ── About ───────────────────────────────────────────────── */
 .about {
   background: var(--white);

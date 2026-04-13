@@ -6,11 +6,13 @@ import './ResumePage.css'
 
 export default function ResumePage() {
   const [resume, setResume] = useState<ResumeData | null>(null)
+  const [error, setError] = useState(false)
 
   useEffect(() => {
-    fetchResume().then(setResume)
+    fetchResume().then(setResume).catch(() => setError(true))
   }, [])
 
+  if (error) return <div className="resume-loading">Failed to load resume.</div>
   if (!resume) return <div className="resume-loading">Loading...</div>
 
   return (

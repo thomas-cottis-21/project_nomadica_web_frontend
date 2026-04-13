@@ -7,14 +7,16 @@ import type { BlogPost } from '../types/blog'
 import './BlogPostPage.css'
 
 export default function BlogPostPage() {
-  const { slug } = useParams<{ slug: string }>()
+  const { slug } = useParams<{ slug?: string }>()
   const [post, setPost] = useState<BlogPost | null | undefined>(undefined)
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     if (!slug) return
-    fetchPost(slug).then(setPost)
+    fetchPost(slug).then(setPost).catch(() => setError(true))
   }, [slug])
 
+  if (error) return <div className="post-loading">Failed to load post.</div>
   if (post === undefined) return <div className="post-loading">Loading...</div>
   if (post === null) return <div className="post-loading">Post not found.</div>
 

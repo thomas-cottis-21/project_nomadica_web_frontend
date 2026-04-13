@@ -49,6 +49,12 @@
   color: var(--white);
 }
 
+.nav-links a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
 /* ── Hamburger ───────────────────────────────────────────── */
 .nav-hamburger {
   display: none;

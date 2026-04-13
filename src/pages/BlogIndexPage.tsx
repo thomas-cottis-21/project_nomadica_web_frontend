@@ -8,11 +8,13 @@ import './BlogIndexPage.css'
 export default function BlogIndexPage() {
   const [posts, setPosts] = useState<BlogPostSummary[] | null>(null)
   const [activeTag, setActiveTag] = useState<string>('all')
+  const [error, setError] = useState(false)
 
   useEffect(() => {
-    fetchPosts().then(setPosts)
+    fetchPosts().then(setPosts).catch(() => setError(true))
   }, [])
 
+  if (error) return <div className="blog-loading">Failed to load posts.</div>
   if (!posts) return <div className="blog-loading">Loading...</div>
 
   const allTags = ['all', ...Array.from(new Set(posts.flatMap(p => p.tags)))]

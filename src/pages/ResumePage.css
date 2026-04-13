@@ -82,18 +82,19 @@
   color: var(--white);
 }
 
-.resume-download {
-  background: var(--accent) !important;
-  color: var(--white) !important;
+.resume-contact a.resume-download {
+  background: var(--accent);
+  color: var(--white);
   padding: 10px 24px;
-  font-size: 13px !important;
-  letter-spacing: 0.08em !important;
+  font-size: 13px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  transition: background 0.2s !important;
+  transition: background 0.2s;
 }
 
-.resume-download:hover {
-  background: #a83f1f !important;
+.resume-contact a.resume-download:hover {
+  background: #a83f1f;
+  color: var(--white);
 }
 
 /* ── Body layout ─────────────────────────────────────────── */
