@@ -1,0 +1,92 @@
+{
+  "name": "Tom Nomad",
+  "title": "Full Stack Software Engineer",
+  "tagline": "5+ years building scalable web products — from the office and from the road.",
+  "contact": {
+    "email": "tom@nomadica.dev",
+    "github": "https://github.com/tomco",
+    "linkedin": "https://linkedin.com/in/tomco"
+  },
+  "skills": [
+    {
+      "category": "Languages",
+      "items": ["TypeScript", "JavaScript", "Python", "Go", "SQL"]
+    },
+    {
+      "category": "Frontend",
+      "items": ["React", "Next.js", "Vite", "CSS", "Tailwind"]
+    },
+    {
+      "category": "Backend",
+      "items": ["Node.js", "Express", "FastAPI", "PostgreSQL", "Redis"]
+    },
+    {
+      "category": "Cloud & Tools",
+      "items": ["AWS", "Docker", "GitHub Actions", "Terraform", "Vercel"]
+    }
+  ],
+  "experience": [
+    {
+      "company": "Acme Corp",
+      "role": "Senior Software Engineer",
+      "period": "Jan 2023 – Present",
+      "location": "Remote",
+      "bullets": [
+        "Led migration of monolithic Rails app to microservices, reducing p99 latency by 40%",
+        "Owned frontend rebuild in React + TypeScript, shipping 3 major product features per quarter",
+        "Mentored 2 junior engineers and established code review standards across the team"
+      ]
+    },
+    {
+      "company": "Startup XYZ",
+      "role": "Software Engineer",
+      "period": "Jun 2021 – Dec 2022",
+      "location": "San Francisco, CA",
+      "bullets": [
+        "Built real-time collaboration features using WebSockets serving 10k+ concurrent users",
+        "Designed and implemented RESTful API consumed by web and mobile clients",
+        "Reduced CI pipeline time from 18 min to 6 min through parallelisation and caching"
+      ]
+    },
+    {
+      "company": "Freelance",
+      "role": "Full Stack Developer",
+      "period": "Jan 2020 – May 2021",
+      "location": "Worldwide",
+      "bullets": [
+        "Delivered 8 client projects spanning e-commerce, SaaS dashboards, and marketing sites",
+        "Stack ranged from Next.js + Stripe to Django + Postgres depending on project needs"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Project Nomadica",
+      "description": "This site — a travel blog, developer portfolio, and bucket list tracker built with React, TypeScript, and Vite.",
+      "stack": ["React", "TypeScript", "Vite"],
+      "github": "https://github.com/tomco/project-nomadica",
+      "live": "https://nomadica.dev"
+    },
+    {
+      "name": "TrailSync",
+      "description": "GPS track aggregator that syncs hikes and rides from Strava, Garmin, and GPX files into a unified map view.",
+      "stack": ["Next.js", "PostgreSQL", "PostGIS", "Mapbox"],
+      "github": "https://github.com/tomco/trailsync",
+      "live": null
+    },
+    {
+      "name": "Pocketledger",
+      "description": "Lightweight personal finance tracker with multi-currency support, built for travellers managing money across borders.",
+      "stack": ["React", "FastAPI", "SQLite"],
+      "github": "https://github.com/tomco/pocketledger",
+      "live": null
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Technology",
+      "degree": "B.Sc. Computer Science",
+      "period": "2016 – 2020"
+    }
+  ]
+}

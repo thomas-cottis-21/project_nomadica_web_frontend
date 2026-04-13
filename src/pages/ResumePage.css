@@ -1,0 +1,357 @@
+/* ── Page base ───────────────────────────────────────────── */
+.resume-page {
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--sand);
+  min-height: 100svh;
+}
+
+.resume-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  font-family: var(--font-sans);
+  color: var(--ink-muted);
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.resume-header {
+  background: var(--ink);
+  color: var(--white);
+  padding: 140px 64px 80px;
+}
+
+.resume-header-inner {
+  max-width: 800px;
+}
+
+.resume-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.resume-name {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.05;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+}
+
+.resume-title {
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin: 0 0 20px;
+}
+
+.resume-tagline {
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.7);
+  max-width: 560px;
+  margin: 0 0 40px;
+}
+
+.resume-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  align-items: center;
+}
+
+.resume-contact a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.resume-contact a:hover {
+  color: var(--white);
+}
+
+.resume-download {
+  background: var(--accent) !important;
+  color: var(--white) !important;
+  padding: 10px 24px;
+  font-size: 13px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase;
+  transition: background 0.2s !important;
+}
+
+.resume-download:hover {
+  background: #a83f1f !important;
+}
+
+/* ── Body layout ─────────────────────────────────────────── */
+.resume-body {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* ── Sections ────────────────────────────────────────────── */
+.resume-section {
+  padding: 72px 64px;
+  background: var(--white);
+}
+
+.resume-section--alt {
+  background: var(--sand);
+}
+
+.resume-section-title {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 40px;
+}
+
+/* ── Skills ──────────────────────────────────────────────── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 32px;
+}
+
+.skill-category {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 0 0 14px;
+}
+
+.skill-tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  font-size: 13px;
+  padding: 4px 12px;
+  background: var(--sand);
+  color: var(--ink);
+  border-radius: 2px;
+}
+
+/* ── Timeline ────────────────────────────────────────────── */
+.timeline {
+  position: relative;
+  padding-left: 24px;
+  border-left: 1px solid var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -29px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--sand);
+  outline: 1px solid var(--accent);
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.timeline-role {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 4px;
+  color: var(--ink);
+}
+
+.timeline-company {
+  font-size: 14px;
+  color: var(--ink-muted);
+  margin: 0;
+}
+
+.timeline-period {
+  font-size: 13px;
+  color: var(--ink-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.timeline-bullets {
+  padding-left: 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.timeline-bullets li {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-muted);
+}
+
+/* ── Projects ────────────────────────────────────────────── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: var(--sand);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.project-name {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 0 10px;
+  color: var(--ink);
+}
+
+.project-description {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-muted);
+  margin: 0 0 16px;
+}
+
+.project-stack {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.project-tag {
+  font-size: 12px;
+  padding: 3px 10px;
+  background: var(--white);
+  color: var(--ink-muted);
+  border-radius: 2px;
+}
+
+.project-links {
+  display: flex;
+  gap: 16px;
+}
+
+.project-links a {
+  font-size: 13px;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: opacity 0.2s;
+}
+
+.project-links a:hover {
+  opacity: 0.75;
+}
+
+/* ── Education ───────────────────────────────────────────── */
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.education-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.education-institution {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.education-degree {
+  font-size: 14px;
+  color: var(--ink-muted);
+  margin: 0;
+}
+
+.education-period {
+  font-size: 13px;
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .resume-header {
+    padding: 120px 24px 60px;
+  }
+
+  .resume-section {
+    padding: 56px 24px;
+  }
+
+  .timeline {
+    padding-left: 18px;
+  }
+
+  .timeline-marker {
+    left: -23px;
+  }
+
+  .timeline-header {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
