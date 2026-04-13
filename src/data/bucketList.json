@@ -1,0 +1,129 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "destination": "Kyoto",
+      "country": "Japan",
+      "continent": "Asia",
+      "description": "Temple corridors lined with thousands of torii gates, bamboo groves, and a city that moves between the ancient and the modern without losing either.",
+      "status": "visited",
+      "category": "culture",
+      "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1200&auto=format&fit=crop",
+      "year": 2022
+    },
+    {
+      "id": 2,
+      "destination": "Patagonia",
+      "country": "Argentina & Chile",
+      "continent": "South America",
+      "description": "The end of the world. Granite towers, turquoise lakes, and winds that make you feel genuinely small.",
+      "status": "planned",
+      "category": "adventure",
+      "image": "https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "id": 3,
+      "destination": "Amalfi Coast",
+      "country": "Italy",
+      "continent": "Europe",
+      "description": "Cliffside villages in impossible colours, boats bobbing in harbours that smell of lemon and salt.",
+      "status": "dreaming",
+      "category": "coast",
+      "image": "https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "id": 4,
+      "destination": "Iceland",
+      "country": "Iceland",
+      "continent": "Europe",
+      "description": "A country that feels like a different planet — volcanoes, geysers, northern lights, and roads that go on forever.",
+      "status": "visited",
+      "category": "nature",
+      "image": "https://images.unsplash.com/photo-1476610182048-b716b8518aae?q=80&w=1200&auto=format&fit=crop",
+      "year": 2021
+    },
+    {
+      "id": 5,
+      "destination": "Marrakech",
+      "country": "Morocco",
+      "continent": "Africa",
+      "description": "A sensory overload in the best way. Spice markets, riads hidden behind unmarked doors, and rooftops at sunset.",
+      "status": "visited",
+      "category": "culture",
+      "image": "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?q=80&w=1200&auto=format&fit=crop",
+      "year": 2023
+    },
+    {
+      "id": 6,
+      "destination": "Norwegian Fjords",
+      "country": "Norway",
+      "continent": "Europe",
+      "description": "Water so still it mirrors the mountains above it. Hiking trails that reward you with views that feel earned.",
+      "status": "planned",
+      "category": "nature",
+      "image": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "id": 7,
+      "destination": "Machu Picchu",
+      "country": "Peru",
+      "continent": "South America",
+      "description": "The lost city of the Inca, perched above the clouds. One of those places that earns every cliché written about it.",
+      "status": "dreaming",
+      "category": "history",
+      "image": "https://images.unsplash.com/photo-1587595431973-160d0d94add1?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "id": 8,
+      "destination": "Santorini",
+      "country": "Greece",
+      "continent": "Europe",
+      "description": "Blue domes, white walls, wine at the caldera edge. Overrated and overwhelmingly beautiful in equal measure.",
+      "status": "visited",
+      "category": "coast",
+      "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1200&auto=format&fit=crop",
+      "year": 2019
+    },
+    {
+      "id": 9,
+      "destination": "New Zealand",
+      "country": "New Zealand",
+      "continent": "Oceania",
+      "description": "The landscape that made a generation believe in Middle-earth. Every road trip here is its own kind of adventure.",
+      "status": "planned",
+      "category": "nature",
+      "image": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "id": 10,
+      "destination": "Varanasi",
+      "country": "India",
+      "continent": "Asia",
+      "description": "The oldest living city in the world. Ghats at dawn, incense, and the Ganges carrying everything downstream.",
+      "status": "dreaming",
+      "category": "culture",
+      "image": "https://images.unsplash.com/photo-1561361058-c24cecae35ca?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "id": 11,
+      "destination": "Scottish Highlands",
+      "country": "Scotland",
+      "continent": "Europe",
+      "description": "Lochs, castles, and weather that changes every hour. The kind of landscape that makes you want to write.",
+      "status": "visited",
+      "category": "nature",
+      "image": "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?q=80&w=1200&auto=format&fit=crop",
+      "year": 2020
+    },
+    {
+      "id": 12,
+      "destination": "Namibia",
+      "country": "Namibia",
+      "continent": "Africa",
+      "description": "The oldest desert on earth, dead trees in salt pans, and a sky so full of stars it barely feels real.",
+      "status": "dreaming",
+      "category": "adventure",
+      "image": "https://images.unsplash.com/photo-1509316785289-025f5b846b35?q=80&w=1200&auto=format&fit=crop"
+    }
+  ]
+}

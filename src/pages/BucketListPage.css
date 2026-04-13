@@ -1,0 +1,321 @@
+/* ── Page base ───────────────────────────────────────────── */
+.bl-page {
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--sand);
+  min-height: 100svh;
+}
+
+.bl-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  font-family: var(--font-sans);
+  color: var(--ink-muted);
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.bl-header {
+  background: var(--ink);
+  color: var(--white);
+  padding: 140px 64px 80px;
+}
+
+.bl-header-inner {
+  max-width: 800px;
+}
+
+.bl-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.bl-title {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.05;
+  margin: 0 0 20px;
+  letter-spacing: -0.02em;
+}
+
+.bl-subtitle {
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.65);
+  max-width: 520px;
+  margin: 0 0 48px;
+}
+
+/* ── Stats ───────────────────────────────────────────────── */
+.bl-stats {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.bl-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bl-stat-number {
+  font-family: var(--font-serif);
+  font-size: 40px;
+  font-style: italic;
+  line-height: 1;
+  color: var(--white);
+}
+
+.bl-stat-label {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+.bl-stat-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,0.15);
+}
+
+/* ── Filters ─────────────────────────────────────────────── */
+.bl-filters {
+  display: flex;
+  gap: 0;
+  padding: 0 64px;
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.bl-filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 24px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: rgba(255,255,255,0.45);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.bl-filter-btn:hover {
+  color: rgba(255,255,255,0.8);
+}
+
+.bl-filter-btn--active {
+  color: var(--white);
+  border-bottom-color: var(--accent);
+}
+
+.bl-filter-count {
+  font-size: 11px;
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.5);
+  padding: 2px 7px;
+  border-radius: 10px;
+}
+
+.bl-filter-btn--active .bl-filter-count {
+  background: rgba(200, 80, 42, 0.2);
+  color: var(--accent);
+}
+
+/* ── Grid ────────────────────────────────────────────────── */
+.bl-grid-wrapper {
+  padding: 48px 64px 80px;
+}
+
+.bl-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ── Cards ───────────────────────────────────────────────── */
+.bl-card {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  cursor: default;
+}
+
+.bl-card-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+}
+
+.bl-card:hover .bl-card-image {
+  transform: scale(1.04);
+}
+
+.bl-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.1) 0%,
+    rgba(0,0,0,0.05) 40%,
+    rgba(0,0,0,0.75) 100%
+  );
+  transition: background 0.3s ease;
+}
+
+.bl-card:hover .bl-card-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.2) 0%,
+    rgba(0,0,0,0.1) 30%,
+    rgba(0,0,0,0.85) 100%
+  );
+}
+
+.bl-card--visited .bl-card-image {
+  filter: none;
+}
+
+.bl-card--dreaming .bl-card-image {
+  filter: saturate(0.7);
+}
+
+.bl-card-body {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* ── Badge ───────────────────────────────────────────────── */
+.bl-badge {
+  align-self: flex-start;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+.bl-badge--visited {
+  background: rgba(200, 80, 42, 0.85);
+  color: var(--white);
+}
+
+.bl-badge--planned {
+  background: rgba(13, 13, 13, 0.7);
+  color: rgba(255,255,255,0.9);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.bl-badge--dreaming {
+  background: rgba(13, 13, 13, 0.5);
+  color: rgba(255,255,255,0.6);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* ── Card footer ─────────────────────────────────────────── */
+.bl-card-footer {
+  color: var(--white);
+}
+
+.bl-card-destination {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 400;
+  font-style: italic;
+  margin: 0 0 4px;
+  line-height: 1.1;
+}
+
+.bl-card-country {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin: 0;
+}
+
+/* ── Description reveal on hover ────────────────────────── */
+.bl-card-description {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+  background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.6) 50%, transparent 100%);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.bl-card:hover .bl-card-description {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bl-card-description p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.85);
+  margin: 0;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .bl-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .bl-header {
+    padding: 120px 24px 60px;
+  }
+
+  .bl-filters {
+    padding: 0 24px;
+    overflow-x: auto;
+  }
+
+  .bl-grid-wrapper {
+    padding: 32px 24px 60px;
+  }
+
+  .bl-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bl-card {
+    aspect-ratio: 4 / 3;
+  }
+
+  .bl-stats {
+    gap: 20px;
+  }
+
+  .bl-stat-number {
+    font-size: 32px;
+  }
+}
