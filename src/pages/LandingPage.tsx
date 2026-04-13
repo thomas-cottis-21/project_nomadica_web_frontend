@@ -17,8 +17,8 @@ export default function LandingPage() {
             and destinations yet to come.
           </p>
           <div className="hero-cta">
-            <a href="#blog" className="btn-primary">Read the Blog</a>
-            <a href="#bucket-list" className="btn-ghost">Bucket List</a>
+            <a href="/blog" className="btn-primary">Read the Blog</a>
+            <a href="/bucket-list" className="btn-ghost">Bucket List</a>
           </div>
         </div>
         <div className="hero-scroll-hint">

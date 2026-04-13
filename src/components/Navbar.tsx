@@ -28,7 +28,7 @@ export default function Navbar({ alwaysSolid = false }: NavbarProps) {
   return (
     <>
       <nav className={`nav${scrolled ? ' nav--scrolled' : ''}`}>
-        <a href="/" className="nav-logo">Nomadica</a>
+        <a href="/" className="nav-logo">Project Nomadica</a>
 
         <ul className="nav-links">
           <li><a href="/#about">About</a></li>
