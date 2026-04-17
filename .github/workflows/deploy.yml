@@ -44,10 +44,10 @@ jobs:
         run: |
           ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no deploy@basalt \
             "docker pull ghcr.io/thomas-cottis-21/project-nomadica:latest && \
-             docker compose -f ~/project-nomadica/docker-compose.yml up -d"
+             docker compose -f /opt/docker/project-nomadica/docker-compose.yml up -d"
 
       - name: Deploy to forma
         run: |
           ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no deploy@forma \
             "docker pull ghcr.io/thomas-cottis-21/project-nomadica:latest && \
-             docker compose -f ~/project-nomadica/docker-compose.yml up -d"
+             docker compose -f /opt/docker/project-nomadica/docker-compose.yml up -d"
