@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import './Navbar.css'
 
+const APP_VERSION = import.meta.env.VITE_APP_VERSION ?? '0.0.0'
+
 interface NavbarProps {
   alwaysSolid?: boolean
 }
@@ -49,6 +51,11 @@ export default function Navbar({ alwaysSolid = false }: NavbarProps) {
         </button>
       </nav>
 
+      <div
+        className={`nav-mobile-overlay${menuOpen ? ' nav-mobile-overlay--open' : ''}`}
+        onClick={closeMenu}
+        aria-hidden
+      />
       <div className={`nav-mobile-drawer${menuOpen ? ' nav-mobile-drawer--open' : ''}`} aria-hidden={!menuOpen}>
         <ul>
           <li><a href="/#about" onClick={closeMenu}>About</a></li>
@@ -56,6 +63,7 @@ export default function Navbar({ alwaysSolid = false }: NavbarProps) {
           <li><a href="/blog" onClick={closeMenu}>Blog</a></li>
           <li><a href="/bucket-list" onClick={closeMenu}>Bucket List</a></li>
         </ul>
+        <span className="nav-mobile-version">v{APP_VERSION}|FORMA_SYSTEMS<br/>BASALT</span>
       </div>
     </>
   )
