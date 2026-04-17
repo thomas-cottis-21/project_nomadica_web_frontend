@@ -63,7 +63,7 @@ export default function Navbar({ alwaysSolid = false }: NavbarProps) {
           <li><a href="/blog" onClick={closeMenu}>Blog</a></li>
           <li><a href="/bucket-list" onClick={closeMenu}>Bucket List</a></li>
         </ul>
-        <span className="nav-mobile-version">v{APP_VERSION}|FORMA_SYSTEMS<br/>SERVER</span>
+        <span className="nav-mobile-version">v{APP_VERSION}|FORMA_SYSTEMS<br/>{import.meta.env.VITE_HOSTNAME}</span>
       </div>
     </>
   )
