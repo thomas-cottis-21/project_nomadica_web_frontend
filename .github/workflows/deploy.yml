@@ -52,6 +52,6 @@ jobs:
 
       - name: Deploy to forma
         run: |
-          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no deploy@forma \
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no deploy@sanukite \
             "docker pull ghcr.io/thomas-cottis-21/project-nomadica:latest && \
              docker compose -f /opt/docker/project-nomadica/docker-compose.yml up -d"
