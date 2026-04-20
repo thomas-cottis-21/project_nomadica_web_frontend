@@ -30,7 +30,7 @@
 }
 
 .bl-eyebrow {
-  font-family: var(--font-serif);
+  font-family: var(--font-label);
   font-size: 12px;
   letter-spacing: 0.2em;
   text-transform: uppercase;

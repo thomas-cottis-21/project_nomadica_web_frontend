@@ -18,8 +18,9 @@
   --color-title: var(--accent);
 
   --font-sans: 'Jost', system-ui, sans-serif;
-  --font-serif: 'Engebrechtre', 'Georgia', 'Times New Roman', serif;
-  --font-logo: 'Engebrechtre', 'Georgia', serif;
+  --font-serif: 'Georgia', 'Times New Roman', serif;
+  --font-logo: 'Georgia', 'Times New Roman', serif;
+  --font-label: 'Engebrechtre', system-ui, sans-serif;
 }
 
 /* ── Base ────────────────────────────────────────────────── */
@@ -49,7 +50,7 @@
 }
 
 .hero-eyebrow {
-  font-family: var(--font-serif);
+  font-family: var(--font-label);
   font-size: 13px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -161,7 +162,7 @@
 }
 
 .section-label {
-  font-family: var(--font-serif);
+  font-family: var(--font-label);
   font-size: 12px;
   letter-spacing: 0.2em;
   text-transform: uppercase;

@@ -30,6 +30,7 @@
 }
 
 .resume-eyebrow {
+  font-family: var(--font-label);
   font-size: 12px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -115,7 +116,7 @@
 }
 
 .resume-section-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-label);
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
