@@ -1,0 +1,260 @@
+/* ── Page ────────────────────────────────────────────────── */
+.post-editor {
+  font-family: var(--font-sans);
+  background: var(--sand);
+  min-height: 100svh;
+  padding: 100px 64px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.editor-header,
+.editor-form,
+.editor-actions {
+  width: 100%;
+  max-width: 960px;
+}
+
+.editor-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  font-family: var(--font-sans);
+  color: var(--ink-muted);
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── Back button ─────────────────────────────────────────── */
+.editor-back {
+  position: absolute;
+  top: 32px;
+  left: 40px;
+  background: none;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0;
+}
+
+.editor-back:hover {
+  color: var(--ink);
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.editor-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.editor-header h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* ── Status badge ────────────────────────────────────────── */
+.status-badge {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 2px;
+}
+
+.status-badge.draft {
+  background: rgba(13,13,13,0.08);
+  color: var(--ink-muted);
+}
+
+.status-badge.published {
+  background: rgba(200,80,42,0.12);
+  color: var(--accent);
+}
+
+/* ── Error ───────────────────────────────────────────────── */
+.editor-error {
+  font-size: 13px;
+  color: #e07070;
+  padding: 12px 16px;
+  background: rgba(220,60,60,0.08);
+  border: 1px solid rgba(220,60,60,0.2);
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+/* ── Form ────────────────────────────────────────────────── */
+.editor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.editor-form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.editor-form .field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.editor-form label {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.editor-form input,
+.editor-form textarea {
+  background: var(--white);
+  border: 1px solid rgba(13,13,13,0.15);
+  border-radius: 4px;
+  padding: 12px 16px;
+  color: var(--ink);
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+  resize: vertical;
+}
+
+.editor-form input:focus,
+.editor-form textarea:focus {
+  border-color: var(--ink);
+}
+
+.editor-form textarea {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ── Tag picker ──────────────────────────────────────────── */
+.tag-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag-option {
+  padding: 6px 14px;
+  background: var(--white);
+  border: 1px solid rgba(13,13,13,0.15);
+  border-radius: 2px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.tag-option:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.tag-option.selected {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--white);
+}
+
+/* ── Actions ─────────────────────────────────────────────── */
+.editor-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(13,13,13,0.1);
+}
+
+.editor-actions button {
+  padding: 12px 28px;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.2s, background 0.2s;
+  border: 1px solid rgba(13,13,13,0.2);
+  background: var(--white);
+  color: var(--ink);
+}
+
+.editor-actions button:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--white);
+}
+
+.editor-actions button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.editor-actions .publish-btn {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--white);
+}
+
+.editor-actions .publish-btn:hover {
+  opacity: 0.85;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--white);
+}
+
+.editor-actions .delete-btn {
+  margin-left: auto;
+  color: #c0392b;
+  border-color: rgba(192,57,43,0.25);
+}
+
+.editor-actions .delete-btn:hover {
+  background: #c0392b;
+  border-color: #c0392b;
+  color: var(--white);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .post-editor {
+    padding: 80px 24px 60px;
+  }
+
+  .editor-form .field-row {
+    grid-template-columns: 1fr;
+  }
+
+  .editor-actions {
+    flex-wrap: wrap;
+  }
+
+  .editor-actions .delete-btn {
+    margin-left: 0;
+  }
+}

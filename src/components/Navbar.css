@@ -55,6 +55,49 @@
   border-radius: 2px;
 }
 
+/* ── Auth ────────────────────────────────────────────────── */
+.nav-auth {
+  display: flex;
+  align-items: center;
+}
+
+.nav-signin {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.nav-signin:hover {
+  color: var(--white);
+}
+
+.nav-profile {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.nav-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nav-avatar--initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
 /* ── Hamburger ───────────────────────────────────────────── */
 .nav-hamburger {
   display: none;
@@ -150,11 +193,58 @@
   color: var(--white);
 }
 
-.nav-mobile-version {
+.nav-mobile-user {
   margin-top: auto;
+  margin-bottom: 20px;
+}
+
+.nav-mobile-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-mobile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nav-mobile-avatar span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.04em;
+}
+
+.nav-mobile-signed-in {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.25);
+  margin-bottom: 2px;
+}
+
+.nav-mobile-email {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-mobile-version {
   font-size: 11px;
   letter-spacing: 0.06em;
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.15);
   font-family: 'JetBrains Mono', ui-monospace, monospace;
 }
 
@@ -165,6 +255,10 @@
   }
 
   .nav-links {
+    display: none;
+  }
+
+  .nav-auth {
     display: none;
   }
 

@@ -1,43 +1,99 @@
-export interface ResumeContact {
-  email: string
-  github: string
-  linkedin: string
+export interface Bullet {
+  id: string
+  experienceId: string
+  content: string
+  sortOrder: number
 }
 
-export interface ResumeSkillGroup {
-  category: string
-  items: string[]
-}
-
-export interface ResumeExperience {
+export interface WorkExperience {
+  id: string
+  resumeId: string
   company: string
   role: string
-  period: string
-  location: string
-  bullets: string[]
+  location: string | null
+  startDate: string
+  endDate: string | null
+  sortOrder: number
+  createdAt: string
+  updatedAt: string
+  bullets: Bullet[]
 }
 
-export interface ResumeProject {
-  name: string
-  description: string
-  stack: string[]
-  github: string
-  live: string | null
-}
-
-export interface ResumeEducation {
+export interface Education {
+  id: string
+  resumeId: string
   institution: string
   degree: string
-  period: string
+  startYear: number
+  endYear: number | null
+  sortOrder: number
+  createdAt: string
+}
+
+export interface Technology {
+  id: string
+  name: string
+}
+
+export interface Project {
+  id: string
+  resumeId: string
+  name: string
+  description: string | null
+  githubUrl: string | null
+  liveUrl: string | null
+  sortOrder: number
+  createdAt: string
+  updatedAt: string
+  technologies: Technology[]
+}
+
+export interface Skill {
+  id: string
+  name: string
+  categoryId: string
+}
+
+export interface ResumeSkillEntry {
+  skillId: string
+  sortOrder: number
+  skill: Skill | null
+}
+
+export interface SkillCategory {
+  id: string
+  name: string
+  sortOrder: number
+  skills: Skill[]
+}
+
+export interface ResumeLink {
+  id: string
+  resumeId: string
+  label: string
+  url: string
+  sortOrder: number
+}
+
+export interface PublicUser {
+  id: string
+  email: string
+  displayName: string
+  bio: string | null
+  avatarUrl: string | null
+  roles: string[]
 }
 
 export interface ResumeData {
-  name: string
-  title: string
-  tagline: string
-  contact: ResumeContact
-  skills: ResumeSkillGroup[]
-  experience: ResumeExperience[]
-  projects: ResumeProject[]
-  education: ResumeEducation[]
+  id: string
+  userId: string
+  tagline: string | null
+  title: string | null
+  workExperience: WorkExperience[]
+  education: Education[]
+  projects: Project[]
+  skills: ResumeSkillEntry[]
+  skillCategories: SkillCategory[]
+  links: ResumeLink[]
+  owner: PublicUser
 }

@@ -1,9 +1,16 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
-import { fetchPosts } from '../services/blogService'
+import { fetchPosts } from '../api/blog'
 import type { BlogPostSummary } from '../types/blog'
 import './BlogIndexPage.css'
+
+function formatDate(iso: string | null): string {
+  if (!iso) return ''
+  return new Date(iso).toLocaleDateString('en-GB', {
+    day: 'numeric', month: 'long', year: 'numeric',
+  })
+}
 
 export default function BlogIndexPage() {
   const [posts, setPosts] = useState<BlogPostSummary[] | null>(null)
@@ -17,8 +24,12 @@ export default function BlogIndexPage() {
   if (error) return <div className="blog-loading">Failed to load posts.</div>
   if (!posts) return <div className="blog-loading">Loading...</div>
 
-  const allTags = ['all', ...Array.from(new Set(posts.flatMap(p => p.tags)))]
-  const filtered = activeTag === 'all' ? posts : posts.filter(p => p.tags.includes(activeTag))
+  const allTagNames = Array.from(new Set(posts.flatMap(p => p.tags.map(t => t.name))))
+  const allTags = ['all', ...allTagNames]
+
+  const filtered = activeTag === 'all'
+    ? posts
+    : posts.filter(p => p.tags.some(t => t.name === activeTag))
 
   const [featured, ...rest] = filtered
 
@@ -57,19 +68,20 @@ export default function BlogIndexPage() {
           <Link to={`/blog/${featured.slug}`} className="blog-featured">
             <div
               className="blog-featured-image"
-              style={{ backgroundImage: `url(${featured.coverImage})` }}
+              style={{ backgroundImage: featured.coverImageUrl ? `url(${featured.coverImageUrl})` : undefined }}
             />
             <div className="blog-featured-overlay" />
             <div className="blog-featured-body">
               <div className="blog-featured-tags">
                 {featured.tags.map(tag => (
-                  <span key={tag} className="blog-tag">{tag}</span>
+                  <span key={tag.id} className="blog-tag">{tag.name}</span>
                 ))}
               </div>
               <h2 className="blog-featured-title">{featured.title}</h2>
               <p className="blog-featured-excerpt">{featured.excerpt}</p>
               <p className="blog-featured-meta">
-                {formatDate(featured.publishedAt)} · {featured.readingTime} min read
+                {formatDate(featured.publishedAt)}
+                {featured.readingTimeMinutes ? ` · ${featured.readingTimeMinutes} min read` : ''}
               </p>
             </div>
           </Link>
@@ -82,18 +94,19 @@ export default function BlogIndexPage() {
               <Link key={post.id} to={`/blog/${post.slug}`} className="blog-card">
                 <div
                   className="blog-card-image"
-                  style={{ backgroundImage: `url(${post.coverImage})` }}
+                  style={{ backgroundImage: post.coverImageUrl ? `url(${post.coverImageUrl})` : undefined }}
                 />
                 <div className="blog-card-body">
                   <div className="blog-card-tags">
                     {post.tags.map(tag => (
-                      <span key={tag} className="blog-tag blog-tag--dark">{tag}</span>
+                      <span key={tag.id} className="blog-tag blog-tag--dark">{tag.name}</span>
                     ))}
                   </div>
                   <h2 className="blog-card-title">{post.title}</h2>
                   <p className="blog-card-excerpt">{post.excerpt}</p>
                   <p className="blog-card-meta">
-                    {formatDate(post.publishedAt)} · {post.readingTime} min read
+                    {formatDate(post.publishedAt)}
+                    {post.readingTimeMinutes ? ` · ${post.readingTimeMinutes} min read` : ''}
                   </p>
                 </div>
               </Link>
@@ -103,12 +116,4 @@ export default function BlogIndexPage() {
       </div>
     </div>
   )
-}
-
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString('en-GB', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  })
 }

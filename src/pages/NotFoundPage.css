@@ -1,0 +1,59 @@
+.not-found-page {
+  font-family: var(--font-sans);
+  background: var(--ink);
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.not-found-inner {
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.not-found-eyebrow {
+  font-family: var(--font-serif);
+  font-size: clamp(80px, 12vw, 140px);
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(255,255,255,0.06);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.not-found-title {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-top: -12px;
+}
+
+.not-found-subtitle {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.45);
+  max-width: 380px;
+}
+
+.not-found-back {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.not-found-back:hover {
+  opacity: 0.7;
+}

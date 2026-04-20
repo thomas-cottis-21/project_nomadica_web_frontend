@@ -30,6 +30,9 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: ghcr.io/thomas-cottis-21/project-nomadica:latest
+          build-args: |
+            VITE_API_URL=${{ secrets.VITE_API_URL }}
+            VITE_OWNER_USER_ID=${{ secrets.VITE_OWNER_USER_ID }}
 
       - name: Connect to Tailscale
         uses: tailscale/github-action@v2

@@ -181,6 +181,7 @@
     background-image:
       linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.6) 100%),
       url('https://images.pexels.com/photos/27245763/pexels-photo-27245763.jpeg?_gl=1*j3ftg*_ga*MTUwMjY1Njc4OC4xNzc2MjI1NDAy*_ga_8JE65Q40S6*czE3NzY0ODE1MjgkbzMkZzEkdDE3NzY0ODE4NzEkajM4JGwwJGgw');
+      /* url('https://images.pexels.com/photos/17060856/pexels-photo-17060856.jpeg?_gl=1*13asofa*_ga*MTUwMjY1Njc4OC4xNzc2MjI1NDAy*_ga_8JE65Q40S6*czE3NzY1NzM0NjAkbzUkZzEkdDE3NzY1NzQ4ODgkajM3JGwwJGgw') */
   }
 
   .about {

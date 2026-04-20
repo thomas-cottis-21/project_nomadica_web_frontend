@@ -1,0 +1,169 @@
+/* ── Page ────────────────────────────────────────────────── */
+.login-page {
+  font-family: var(--font-sans);
+  background: var(--ink);
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+/* ── Card ────────────────────────────────────────────────── */
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.login-card h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* ── Form ────────────────────────────────────────────────── */
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-card .field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.login-card label {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+.login-card input {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 4px;
+  padding: 12px 16px;
+  color: var(--white);
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.login-card input::placeholder {
+  color: rgba(255,255,255,0.2);
+}
+
+.login-card input:focus {
+  border-color: rgba(255,255,255,0.35);
+}
+
+.login-card .error {
+  font-size: 13px;
+  color: #e07070;
+  padding: 10px 14px;
+  background: rgba(220,60,60,0.1);
+  border: 1px solid rgba(220,60,60,0.2);
+  border-radius: 4px;
+}
+
+.login-card form button[type="submit"] {
+  margin-top: 4px;
+  padding: 13px 24px;
+  background: var(--accent);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.login-card form button[type="submit"]:hover {
+  opacity: 0.85;
+}
+
+.login-card form button[type="submit"]:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Divider ─────────────────────────────────────────────── */
+.login-card .divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+}
+
+.login-card .divider::before,
+.login-card .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+}
+
+/* ── Google button ───────────────────────────────────────── */
+.google-btn {
+  width: 100%;
+  padding: 13px 24px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 4px;
+  color: rgba(255,255,255,0.8);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.google-btn:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
+}
+
+/* ── Toggle ──────────────────────────────────────────────── */
+.login-card .toggle {
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+  text-align: center;
+}
+
+.login-card .toggle button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.login-card .toggle button:hover {
+  color: var(--white);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .login-page {
+    align-items: flex-start;
+    padding-top: 80px;
+  }
+}

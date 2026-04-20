@@ -1,42 +1,38 @@
 import { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
-import { fetchBucketList } from '../services/bucketListService'
-import type { BucketListData, BucketListStatus } from '../types/bucketList'
+import { fetchBucketList } from '../api/bucketList'
+import type { BucketListItem } from '../types/bucketList'
 import './BucketListPage.css'
 
-type Filter = BucketListStatus | 'all'
+type Filter = 'all' | string
 
-const FILTERS: { value: Filter; label: string }[] = [
-  { value: 'all',      label: 'All' },
-  { value: 'visited',  label: 'Visited' },
-  { value: 'planned',  label: 'Planned' },
-  { value: 'dreaming', label: 'Dreaming' },
-]
+const BASE_FILTERS = [{ value: 'all', label: 'All' }]
 
-const STATUS_LABELS: Record<BucketListStatus, string> = {
-  visited:  'Visited',
-  planned:  'Planned',
-  dreaming: 'Dreaming',
+function statusName(item: BucketListItem): string {
+  return item.status?.name.toLowerCase() ?? ''
 }
 
 export default function BucketListPage() {
-  const [data, setData] = useState<BucketListData | null>(null)
+  const [items, setItems] = useState<BucketListItem[]>([])
   const [filter, setFilter] = useState<Filter>('all')
   const [error, setError] = useState(false)
 
   useEffect(() => {
-    fetchBucketList().then(setData).catch(() => setError(true))
+    fetchBucketList().then(setItems).catch(() => setError(true))
   }, [])
 
   if (error) return <div className="bl-loading">Failed to load bucket list.</div>
-  if (!data) return <div className="bl-loading">Loading...</div>
+  if (!items.length) return <div className="bl-loading">Loading...</div>
 
-  const { items } = data
-  const visited  = items.filter(i => i.status === 'visited').length
-  const planned  = items.filter(i => i.status === 'planned').length
-  const dreaming = items.filter(i => i.status === 'dreaming').length
+  const uniqueStatuses = Array.from(
+    new Map(items.filter(i => i.status).map(i => [i.status!.name.toLowerCase(), i.status!.name])).entries()
+  ).map(([value, label]) => ({ value, label: label.charAt(0).toUpperCase() + label.slice(1).toLowerCase() }))
 
-  const filtered = filter === 'all' ? items : items.filter(i => i.status === filter)
+  const filters: { value: Filter; label: string }[] = [...BASE_FILTERS, ...uniqueStatuses]
+
+  const countFor = (s: string) => items.filter(i => statusName(i) === s).length
+
+  const filtered = filter === 'all' ? items : items.filter(i => statusName(i) === filter)
 
   return (
     <div className="bl-page">
@@ -52,27 +48,22 @@ export default function BucketListPage() {
             and the ones still waiting.
           </p>
           <div className="bl-stats">
-            <div className="bl-stat">
-              <span className="bl-stat-number">{visited}</span>
-              <span className="bl-stat-label">Visited</span>
-            </div>
-            <div className="bl-stat-divider" />
-            <div className="bl-stat">
-              <span className="bl-stat-number">{planned}</span>
-              <span className="bl-stat-label">Planned</span>
-            </div>
-            <div className="bl-stat-divider" />
-            <div className="bl-stat">
-              <span className="bl-stat-number">{dreaming}</span>
-              <span className="bl-stat-label">Dreaming</span>
-            </div>
+            {uniqueStatuses.map((s, i) => (
+              <>
+                {i > 0 && <div key={`divider-${s.value}`} className="bl-stat-divider" />}
+                <div key={s.value} className="bl-stat">
+                  <span className="bl-stat-number">{countFor(s.value)}</span>
+                  <span className="bl-stat-label">{s.label}</span>
+                </div>
+              </>
+            ))}
           </div>
         </div>
       </header>
 
       {/* ── Filter bar ── */}
       <div className="bl-filters">
-        {FILTERS.map(f => (
+        {filters.map(f => (
           <button
             key={f.value}
             className={`bl-filter-btn${filter === f.value ? ' bl-filter-btn--active' : ''}`}
@@ -80,9 +71,7 @@ export default function BucketListPage() {
           >
             {f.label}
             {f.value !== 'all' && (
-              <span className="bl-filter-count">
-                {items.filter(i => i.status === f.value).length}
-              </span>
+              <span className="bl-filter-count">{countFor(f.value)}</span>
             )}
           </button>
         ))}
@@ -91,31 +80,34 @@ export default function BucketListPage() {
       {/* ── Grid ── */}
       <div className="bl-grid-wrapper">
         <div className="bl-grid">
-          {filtered.map(item => (
-            <article key={item.id} className={`bl-card bl-card--${item.status}`}>
-              <div
-                className="bl-card-image"
-                style={{ backgroundImage: `url(${item.image})` }}
-              />
-              <div className="bl-card-overlay" />
-              <div className="bl-card-body">
-                <span className={`bl-badge bl-badge--${item.status}`}>
-                  {item.status === 'visited' && '✓ '}
-                  {STATUS_LABELS[item.status]}
-                  {item.year ? ` · ${item.year}` : ''}
-                </span>
-                <div className="bl-card-footer">
-                  <div>
-                    <h2 className="bl-card-destination">{item.destination}</h2>
-                    <p className="bl-card-country">{item.country}</p>
+          {filtered.map(item => {
+            const status = statusName(item)
+            const dest = item.destination
+            return (
+              <article key={item.id} className={`bl-card bl-card--${status}`}>
+                <div
+                  className="bl-card-image"
+                  style={{ backgroundImage: dest?.coverImageUrl ? `url(${dest.coverImageUrl})` : undefined }}
+                />
+                <div className="bl-card-overlay" />
+                <div className="bl-card-body">
+                  <span className={`bl-badge bl-badge--${status}`}>
+                    {status === 'visited' && '✓ '}
+                    {item.status?.name ?? ''}
+                  </span>
+                  <div className="bl-card-footer">
+                    <div>
+                      <h2 className="bl-card-destination">{dest?.name ?? '—'}</h2>
+                      <p className="bl-card-country">{dest?.country ?? ''}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="bl-card-description">
-                <p>{item.description}</p>
-              </div>
-            </article>
-          ))}
+                <div className="bl-card-description">
+                  <p>{dest?.description ?? ''}</p>
+                </div>
+              </article>
+            )
+          })}
         </div>
       </div>
     </div>
