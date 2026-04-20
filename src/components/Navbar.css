@@ -20,11 +20,10 @@
 }
 
 .nav-logo {
-  font-family: var(--font-serif);
+  font-family: var(--font-logo);
   font-size: 22px;
-  font-style: italic;
-  letter-spacing: 0.02em;
-  color: var(--white);
+  letter-spacing: 0.04em;
+  color: var(--accent);
   text-decoration: none;
 }
 

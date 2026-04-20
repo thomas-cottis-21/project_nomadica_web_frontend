@@ -56,7 +56,8 @@
 }
 
 .resume-tagline {
-  font-size: 17px;
+  font-family: var(--font-serif);
+  font-size: 20px;
   line-height: 1.7;
   color: rgba(255,255,255,0.7);
   max-width: 560px;
@@ -93,7 +94,7 @@
 }
 
 .resume-contact a.resume-download:hover {
-  background: #a83f1f;
+  background: var(--accent-dark);
   color: var(--white);
 }
 

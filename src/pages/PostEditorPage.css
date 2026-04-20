@@ -63,7 +63,7 @@
   font-size: clamp(32px, 4vw, 48px);
   font-weight: 400;
   font-style: italic;
-  color: var(--ink);
+  color: var(--color-title);
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
@@ -222,9 +222,8 @@
 }
 
 .editor-actions .publish-btn:hover {
-  opacity: 0.85;
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
   color: var(--white);
 }
 

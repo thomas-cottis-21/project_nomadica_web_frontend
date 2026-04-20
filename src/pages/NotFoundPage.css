@@ -37,7 +37,8 @@
 }
 
 .not-found-subtitle {
-  font-size: 16px;
+  font-family: var(--font-serif);
+  font-size: 19px;
   line-height: 1.7;
   color: rgba(255,255,255,0.45);
   max-width: 380px;
